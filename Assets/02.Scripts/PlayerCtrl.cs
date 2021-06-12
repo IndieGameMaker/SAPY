@@ -20,7 +20,7 @@ public class PlayerCtrl : MonoBehaviour
 
         // Transform 컴포넌트
         //transform.position += new Vector3(0, 0, 0.1f);
-        transform.Translate(Vector3.forward * 0.1f);  //new Vector3(0, 0, 1) * 0.1f
+        transform.Translate(Vector3.forward * 0.1f * v);  //new Vector3(0, 0, 1) * 0.1f
     }
 
     /*
