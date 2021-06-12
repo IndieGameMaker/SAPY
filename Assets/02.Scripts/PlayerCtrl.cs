@@ -15,21 +15,24 @@ public class PlayerCtrl : MonoBehaviour
     // 랜더링 주기
     void Update()
     {
-        float v = Input.GetAxis("Vertical"); // Up, Down Arrow   -1.0f ~ 0.0f ~ +1.0f
-        float h = Input.GetAxis("Horizontal"); // Left, Right Arrow -1.0f ~ 0.0f ~ +1.0f
+        float v = Input.GetAxisRaw("Vertical"); // Up, Down Arrow   -1.0f ~ 0.0f ~ +1.0f
+        float h = Input.GetAxisRaw("Horizontal"); // Left, Right Arrow -1.0f ~ 0.0f ~ +1.0f
 
         // Transform 컴포넌트
         //transform.position += new Vector3(0, 0, 0.1f);
         // transform.Translate(Vector3.forward * 0.1f * v);  //new Vector3(0, 0, 1) * 0.1f
         // transform.Translate(Vector3.right * 0.1f * h);  //new Vector3(1, 0, 0) * 0.1f
 
+        // 크기가 1인 벡터로 변환 = 정규화 , Normalized
+
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
-        transform.Translate(moveDir * 0.1f);
+        transform.Translate(moveDir.normalized * 0.1f);
     }
 
     /*
         Vector3 (구조체) new Vector3(x, y, z)
-
+        정규화 벡터, 유닛벡터, 단위벡터
+        
         Vector3.forward = Vector3(0, 0, 1)
         Vector3.up      = Vector3(0, 1, 0)
         Vector3.right   = Vector3(1, 0, 0)
