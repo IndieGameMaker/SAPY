@@ -15,6 +15,22 @@ public class PlayerCtrl : MonoBehaviour
     // 랜더링 주기
     void Update()
     {
-        // Debug.Log("Called Update " + Time.time);
+        float v = Input.GetAxis("Vertical"); // Up, Down Arrow   -1.0f ~ 0.0f ~ +1.0f
+        Debug.Log("v=" + v);
+
+        // Transform 컴포넌트
+        //transform.position += new Vector3(0, 0, 0.1f);
+        transform.Translate(Vector3.forward * 0.1f);  //new Vector3(0, 0, 1) * 0.1f
     }
+
+    /*
+        Vector3 (구조체) new Vector3(x, y, z)
+
+        Vector3.forward = Vector3(0, 0, 1)
+        Vector3.up      = Vector3(0, 1, 0)
+        Vector3.right   = Vector3(1, 0, 0)
+
+        Vector3.one     = Vector3(1, 1, 1)
+        Vector3.zero    = Vector3(0, 0, 0)
+    */
 }
