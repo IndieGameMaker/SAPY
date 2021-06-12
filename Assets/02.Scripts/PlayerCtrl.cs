@@ -26,7 +26,7 @@ public class PlayerCtrl : MonoBehaviour
         // 크기가 1인 벡터로 변환 = 정규화 , Normalized
 
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
-        transform.Translate(moveDir.normalized * 0.1f);
+        transform.Translate(moveDir.normalized * Time.deltaTime * 8.0f);
     }
 
     /*
