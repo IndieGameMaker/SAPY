@@ -16,11 +16,15 @@ public class PlayerCtrl : MonoBehaviour
     void Update()
     {
         float v = Input.GetAxis("Vertical"); // Up, Down Arrow   -1.0f ~ 0.0f ~ +1.0f
-        Debug.Log("v=" + v);
+        float h = Input.GetAxis("Horizontal"); // Left, Right Arrow -1.0f ~ 0.0f ~ +1.0f
 
         // Transform 컴포넌트
         //transform.position += new Vector3(0, 0, 0.1f);
-        transform.Translate(Vector3.forward * 0.1f * v);  //new Vector3(0, 0, 1) * 0.1f
+        // transform.Translate(Vector3.forward * 0.1f * v);  //new Vector3(0, 0, 1) * 0.1f
+        // transform.Translate(Vector3.right * 0.1f * h);  //new Vector3(1, 0, 0) * 0.1f
+
+        Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
+        transform.Translate(moveDir * 0.1f);
     }
 
     /*
